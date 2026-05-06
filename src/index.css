@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  font-family: var(--font-main);
+}
+
+body {
+  background: #f0f2f8;
+  color: #1a1a2e;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: #c0c4d0; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #9095a0; }
+
+/* Smooth transitions */
+* { transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s; }
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+/* Status badge animations */
+@keyframes pulse-hot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+}
+
+@keyframes pulse-warm {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
+}
+
+.animate-hot { animation: pulse-hot 2s infinite; }
+.animate-warm { animation: pulse-warm 2s infinite; }
+
+/* Card hover */
+.lead-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.lead-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+/* Upload drop zone */
+.drop-zone-active {
+  border-color: #3b82f6 !important;
+  background: #eff6ff !important;
+}
+
+/* Tab indicator */
+.tab-active {
+  position: relative;
+}
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: currentColor;
+}
